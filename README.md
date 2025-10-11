@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shoreline Global - Supply Chain & Inventory Management
+
+A modern, responsive website for Shoreline Global, a supply chain and inventory management company.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Hosting**: Ready for Vercel/Render/AWS deployment
+
+## Features
+
+- Modern, professional landing page
+- Responsive design (mobile, tablet, desktop)
+- SEO-optimized
+- Fast loading with Next.js optimizations
+- Ready for future e-commerce integration
+- Service showcase sections
+- Contact information and CTAs
 
 ## Getting Started
 
-First, run the development server:
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deployment Options
 
-To learn more about Next.js, take a look at the following resources:
+### Option 1: Vercel (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Deploy with zero configuration
+4. Add custom domain when ready
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 2: Render
 
-## Deploy on Vercel
+1. Push code to GitHub
+2. Create new Web Service in [Render](https://render.com)
+3. Connect your repository
+4. Build Command: `npm run build`
+5. Start Command: `npm start`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Option 3: AWS Amplify
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push code to GitHub
+2. Create new app in [AWS Amplify](https://aws.amazon.com/amplify/)
+3. Connect repository and deploy
+
+## Future Enhancements
+
+- [ ] E-commerce functionality (Stripe/Shopify integration)
+- [ ] Client portal for order tracking
+- [ ] Real-time inventory dashboard
+- [ ] Multi-language support
+- [ ] Blog/News section
+- [ ] Customer testimonials
+- [ ] Case studies
+
+## Project Structure
+
+```
+shoreline-global/
+├── app/
+│   ├── layout.tsx       # Root layout with metadata
+│   ├── page.tsx         # Main landing page
+│   └── globals.css      # Global styles
+├── public/              # Static assets
+├── package.json
+└── README.md
+```
+
+## Contact
+
+For questions about this website, contact the development team.
+
+## License
+
+Copyright © 2025 Shoreline Global. All rights reserved.
