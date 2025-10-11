@@ -1,25 +1,11 @@
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header/Navigation */}
-      <header className="border-b border-slate-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
-            <span className="font-bold text-xl text-slate-900">Shoreline Global</span>
-          </div>
-          <div className="hidden md:flex space-x-8">
-            <a href="#services" className="text-slate-600 hover:text-blue-600 transition-colors">Services</a>
-            <a href="#about" className="text-slate-600 hover:text-blue-600 transition-colors">About</a>
-            <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
-          </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Get Started
-          </button>
-        </nav>
-      </header>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -34,12 +20,12 @@ export default function Home() {
             efficient supply chain services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg">
+            <Link href="/contact" className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg">
               Request a Quote
-            </button>
-            <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium text-lg">
+            </Link>
+            <Link href="/services" className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium text-lg">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -176,59 +162,13 @@ export default function Home() {
           <p className="text-slate-300 mb-8 text-lg">
             Get in touch with our team today for a free consultation
           </p>
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg">
+          <Link href="/contact" className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg inline-block">
             Contact Us Today
-          </button>
+          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">S</span>
-                </div>
-                <span className="font-bold text-white">Shoreline Global</span>
-              </div>
-              <p className="text-sm">
-                Your trusted partner in global supply chain excellence.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Services</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Inventory Management</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Global Logistics</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Supply Chain Analytics</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Warehousing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">News</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm">
-                <li>Email: info@shorelineglobal.com</li>
-                <li>Phone: +1 (555) 123-4567</li>
-                <li>Address: [To be updated]</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 pt-8 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} Shoreline Global. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
