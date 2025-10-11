@@ -189,10 +189,26 @@ Before sending to client, ask them to provide:
 
 ## 🔗 Quick Links
 
-- **GitHub Repo**: https://github.com/omairqazi29/shoreline-global
+- **GitHub Repo**: https://github.com/Shoreline-Global/shoreline-global
 - **Vercel Dashboard**: https://vercel.com (your deployed project)
 - **Local Dev**: http://localhost:3000
 - **Next.js Docs**: https://nextjs.org/docs
+
+## ✅ Repository Transfer Complete
+
+The repository has been successfully transferred to the Shoreline-Global organization:
+- Old URL: `https://github.com/omairqazi29/shoreline-global`
+- New URL: `https://github.com/Shoreline-Global/shoreline-global`
+- Local git remote has been updated to point to the new organization
+
+### Vercel Reconnection
+
+After repository transfer, you may need to reconnect Vercel:
+1. Go to your Vercel dashboard: https://vercel.com
+2. Navigate to the project settings
+3. Under "Git Repository", verify it points to `Shoreline-Global/shoreline-global`
+4. If it shows the old repository, disconnect and reconnect to the new one
+5. Vercel should auto-deploy on the next push to main branch
 
 ## 🎯 Immediate Next Steps
 
