@@ -40,14 +40,16 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen relative">
+      {/* Seamless Background Gradient - Top to Bottom Journey */}
+      <div className="fixed inset-0 bg-gradient-to-b from-orange-50 via-amber-50 via-50% to-emerald-50 -z-10"></div>
+
       <Navigation />
 
       {/* Continuous Vertical Supply Chain Path */}
-      <div className="fixed left-8 top-20 bottom-0 w-1 hidden lg:block z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 opacity-20"></div>
+      <div className="fixed left-8 lg:left-12 top-0 bottom-0 w-1 hidden lg:block z-40 pointer-events-none">
         <motion.div
-          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500"
+          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg"
           initial={{ height: "0%" }}
           animate={{ height: "100%" }}
           transition={{ duration: 2, ease: "easeInOut" }}
@@ -55,9 +57,9 @@ export default function Home() {
       </div>
 
       {/* CHECKPOINT: ORIGIN - Journey Starts Here */}
-      <section className="relative">
+      <section className="relative min-h-screen flex items-center">
         {/* Origin Checkpoint Marker */}
-        <div className="absolute left-8 top-20 hidden lg:flex flex-col items-center z-10">
+        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -68,25 +70,25 @@ export default function Home() {
               <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+          <div className="mt-2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             ORIGIN
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 py-20">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
             <motion.div className="mb-6" variants={fadeInUp}>
-              <span className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <span className="inline-block bg-white/80 backdrop-blur text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
                 📍 Pickup Point
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
+              className="text-5xl lg:text-7xl font-bold text-slate-900 mb-6"
               variants={fadeInUp}
             >
               Your Supply Chain Journey
@@ -120,7 +122,7 @@ export default function Home() {
               >
                 <Link
                   href="/services"
-                  className="border-2 border-orange-300 text-slate-700 px-8 py-4 rounded-lg hover:border-orange-600 hover:text-orange-600 hover:bg-orange-50 transition-all font-medium text-lg inline-block"
+                  className="border-2 border-orange-400 bg-white/50 backdrop-blur text-slate-700 px-8 py-4 rounded-lg hover:border-orange-600 hover:text-orange-600 hover:bg-white/80 transition-all font-medium text-lg inline-block"
                 >
                   View Route Map →
                 </Link>
@@ -131,24 +133,24 @@ export default function Home() {
       </section>
 
       {/* TRANSIT CHECKPOINTS - Services as Journey Stages */}
-      <section id="services" className="bg-slate-50 py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+      <section id="services" className="relative py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
           <motion.div
-            className="mb-16"
+            className="mb-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <span className="inline-block bg-amber-100 text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block bg-white/80 backdrop-blur text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               🚚 In Transit
             </span>
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Route Checkpoints</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Route Checkpoints</h2>
             <p className="text-lg text-slate-600">Your shipment passes through these critical stages</p>
           </motion.div>
 
           {/* Vertical Flow of Service Checkpoints */}
-          <div className="space-y-8">
+          <div className="space-y-12">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -159,20 +161,20 @@ export default function Home() {
                 variants={staggerItem}
               >
                 {/* Checkpoint Marker on Path */}
-                <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-10">
+                <div className="absolute left-8 lg:left-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
                   <motion.div
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 border-4 border-white shadow-lg flex items-center justify-center"
+                    className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 border-4 border-white shadow-lg flex items-center justify-center"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.2 }}
                   >
-                    <span className="text-white font-bold">{index + 1}</span>
+                    <span className="text-white font-bold text-lg">{index + 1}</span>
                   </motion.div>
                 </div>
 
                 <motion.div
-                  className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-amber-500 hover:shadow-2xl transition-all duration-300 ml-0 lg:ml-24"
+                  className="bg-white/70 backdrop-blur p-8 rounded-xl shadow-lg border-l-4 border-amber-500 hover:shadow-2xl hover:bg-white/90 transition-all duration-300 ml-0 lg:ml-28"
                   whileHover={{ x: 10, scale: 1.02 }}
                 >
                   <div className="flex items-start gap-6">
@@ -211,9 +213,9 @@ export default function Home() {
       </section>
 
       {/* TRACKING CHECKPOINT - Performance Metrics */}
-      <section className="bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 py-20 overflow-hidden relative">
+      <section className="relative py-32 overflow-hidden">
         {/* Tracking Checkpoint Marker */}
-        <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-10">
+        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -230,9 +232,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:60px_60px]" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 relative">
           <motion.div
             className="mb-12"
             initial="hidden"
@@ -240,11 +240,11 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <span className="inline-block bg-amber-100 text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block bg-white/80 backdrop-blur text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               📊 Performance Metrics
             </span>
-            <h2 className="text-4xl font-bold text-white mb-4">Real-Time Tracking Data</h2>
-            <p className="text-lg text-slate-300">Monitor your supply chain performance</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Real-Time Tracking Data</h2>
+            <p className="text-lg text-slate-600">Monitor your supply chain performance</p>
           </motion.div>
 
           <motion.div
@@ -259,7 +259,7 @@ export default function Home() {
                 key={index}
                 variants={staggerItem}
                 whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                className="bg-white/70 backdrop-blur rounded-xl p-6 border border-amber-200 shadow-lg hover:shadow-xl hover:bg-white/90"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -267,10 +267,10 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <div className="text-slate-300 text-sm uppercase tracking-wide">{stat.label}</div>
+                  <div className="text-slate-600 text-sm uppercase tracking-wide font-semibold">{stat.label}</div>
                 </motion.div>
               </motion.div>
             ))}
@@ -279,9 +279,9 @@ export default function Home() {
       </section>
 
       {/* QUALITY CHECK CHECKPOINT - Why Choose Us */}
-      <section id="about" className="py-20 overflow-hidden bg-white relative">
+      <section id="about" className="py-32 overflow-hidden relative">
         {/* Quality Check Marker */}
-        <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-10">
+        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -298,20 +298,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={slideInLeft}
           >
-            <span className="inline-block bg-emerald-100 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block bg-white/80 backdrop-blur text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               ✓ Quality Assurance
             </span>
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
               Why Choose Shoreline Global?
             </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-3xl">
+            <p className="text-lg text-slate-600 mb-12 max-w-3xl">
               With over 15 years of experience in global supply chain management,
               we deliver comprehensive solutions that drive efficiency and growth.
             </p>
@@ -325,7 +325,7 @@ export default function Home() {
               {features.map((feature, index) => (
                 <motion.li
                   key={index}
-                  className="flex items-start group bg-slate-50 p-4 rounded-lg border-l-4 border-emerald-500"
+                  className="flex items-start group bg-white/70 backdrop-blur p-5 rounded-lg border-l-4 border-emerald-500 shadow-md hover:shadow-xl hover:bg-white/90"
                   variants={staggerItem}
                   whileHover={{ x: 10, scale: 1.02, transition: { duration: 0.3 } }}
                 >
@@ -351,9 +351,9 @@ export default function Home() {
       </section>
 
       {/* CHECKPOINT: DESTINATION - Journey Complete */}
-      <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-slate-900 py-20 relative overflow-hidden">
+      <section className="relative py-32 overflow-hidden min-h-screen flex items-center">
         {/* Destination Checkpoint Marker */}
-        <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-10">
+        <div className="absolute left-8 lg:left-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-2xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -365,15 +365,13 @@ export default function Home() {
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+          <div className="mt-2 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             DESTINATION
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:60px_60px]" />
-
         {/* Success celebration animation */}
-        <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
           <motion.div
             className="absolute inset-0"
             initial={{ opacity: 0 }}
@@ -403,7 +401,7 @@ export default function Home() {
         </div>
 
         <motion.div
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-20 text-center relative"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-24 text-center relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -416,15 +414,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, type: "spring" }}
           >
-            <span className="inline-block bg-emerald-100 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block bg-white/90 backdrop-blur text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
               🎯 Final Stop
             </span>
           </motion.div>
 
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-6">
             Delivered Successfully!
           </h2>
-          <p className="text-xl text-emerald-100 mb-8">
+          <p className="text-xl text-slate-600 mb-10">
             Ready to start your own supply chain journey?<br/>
             Let&apos;s build the perfect route for your business.
           </p>
@@ -434,7 +432,7 @@ export default function Home() {
           >
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-10 py-5 rounded-lg hover:from-emerald-600 hover:to-green-700 transition-all shadow-2xl hover:shadow-emerald-500/50 font-bold text-lg inline-flex items-center gap-3"
+              className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-10 py-5 rounded-lg hover:from-emerald-600 hover:to-green-700 transition-all shadow-2xl hover:shadow-emerald-500/50 font-bold text-xl inline-flex items-center gap-3"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -447,7 +445,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="mt-12 text-emerald-200 text-sm"
+            className="mt-12 text-slate-500 text-sm font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
