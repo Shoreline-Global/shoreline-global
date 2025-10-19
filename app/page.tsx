@@ -3,10 +3,18 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, slideInLeft } from '@/lib/animations';
+import { useRef } from 'react';
 
 export default function Home() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const pathHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const services = [
     {
       icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
@@ -40,26 +48,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen relative">
+    <div ref={containerRef} className="min-h-screen relative">
       {/* Seamless Background Gradient - Top to Bottom Journey */}
       <div className="fixed inset-0 bg-gradient-to-b from-orange-50 via-amber-50 via-50% to-emerald-50 -z-10"></div>
 
       <Navigation />
 
-      {/* Continuous Vertical Supply Chain Path - runs full height */}
+      {/* Continuous Vertical Supply Chain Path - fills as you scroll */}
       <div className="fixed left-8 lg:left-12 top-0 bottom-0 w-1 hidden lg:block z-40 pointer-events-none">
+        {/* Background track */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-orange-200 via-amber-200 to-emerald-200 opacity-30"></div>
+        {/* Animated fill */}
         <motion.div
-          className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg"
-          initial={{ height: "0%" }}
-          animate={{ height: "100%" }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg origin-top"
+          style={{ height: pathHeight }}
         ></motion.div>
       </div>
 
       {/* CHECKPOINT: ORIGIN - Journey Starts Here */}
       <section className="relative min-h-screen flex items-center">
         {/* Origin Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
+        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -161,7 +170,7 @@ export default function Home() {
                 variants={staggerItem}
               >
                 {/* Checkpoint Marker on Path */}
-                <div className="absolute left-8 lg:left-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
+                <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
                   <motion.div
                     className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 border-4 border-white shadow-lg flex items-center justify-center"
                     initial={{ scale: 0 }}
@@ -215,7 +224,7 @@ export default function Home() {
       {/* TRACKING CHECKPOINT - Performance Metrics */}
       <section className="relative py-32 overflow-hidden">
         {/* Tracking Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
+        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -281,7 +290,7 @@ export default function Home() {
       {/* QUALITY CHECK CHECKPOINT - Why Choose Us */}
       <section id="about" className="py-32 overflow-hidden relative">
         {/* Quality Check Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 hidden lg:flex flex-col items-center z-50">
+        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
@@ -353,7 +362,7 @@ export default function Home() {
       {/* CHECKPOINT: DESTINATION - Journey Complete */}
       <section className="relative py-32 overflow-hidden min-h-screen flex items-center">
         {/* Destination Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
+        <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
             className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-2xl flex items-center justify-center"
             initial={{ scale: 0 }}
