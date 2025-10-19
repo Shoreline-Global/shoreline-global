@@ -420,7 +420,7 @@ export default function Home() {
             Ready to Optimize Your Supply Chain?
           </h2>
           <p className="text-slate-300 mb-8 text-lg">
-            Let's connect and build the most efficient path for your business
+            Let&apos;s connect and build the most efficient path for your business
           </p>
           <motion.div
             whileHover={{ scale: 1.05, x: 5 }}
