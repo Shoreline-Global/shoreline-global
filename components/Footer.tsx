@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400 py-12 relative overflow-hidden">
+    <footer className="bg-slate-950 text-slate-400 py-12 relative overflow-hidden z-50">
       {/* Supply chain connection pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">

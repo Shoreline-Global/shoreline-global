@@ -46,10 +46,10 @@ export default function Home() {
 
       <Navigation />
 
-      {/* Continuous Vertical Supply Chain Path - ends before footer */}
-      <div className="fixed left-8 lg:left-12 top-0 bottom-32 w-1 hidden lg:block z-40 pointer-events-none">
+      {/* Continuous Vertical Supply Chain Path - runs full height */}
+      <div className="fixed left-8 lg:left-12 top-0 bottom-0 w-1 hidden lg:block z-40 pointer-events-none">
         <motion.div
-          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg"
+          className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg"
           initial={{ height: "0%" }}
           animate={{ height: "100%" }}
           transition={{ duration: 2, ease: "easeInOut" }}
@@ -75,7 +75,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-8 py-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -134,7 +134,7 @@ export default function Home() {
 
       {/* TRANSIT CHECKPOINTS - Services as Journey Stages */}
       <section id="services" className="relative py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-8">
           <motion.div
             className="mb-20"
             initial="hidden"
@@ -298,7 +298,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
