@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem, slideInLeft, slideInRight } from '@/lib/animations';
+import { fadeInUp, staggerContainer, staggerItem, slideInLeft } from '@/lib/animations';
 
 export default function Home() {
   const services = [
@@ -360,14 +360,6 @@ export default function Home() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, type: "spring" }}
-            animate={{
-              boxShadow: [
-                "0 0 0 0 rgba(16, 185, 129, 0.7)",
-                "0 0 0 20px rgba(16, 185, 129, 0)",
-              ]
-            }}
-            // @ts-ignore
-            style={{ transition: { duration: 2, repeat: Infinity } }}
           >
             <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
