@@ -13,11 +13,11 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navigation />
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-blue-950 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Ready to transform your supply chain? Get in touch with our team today
+            Ready to grow with us? We partner with resellers and distributors to expand reach and transform supply chains.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function ContactPage() {
               <h2 className="text-3xl font-bold text-slate-900 mb-6">Get In Touch</h2>
               <p className="text-lg text-slate-600 mb-8">
                 Have questions about our services? Our team is here to help you find the
-                perfect supply chain solution for your business.
+                perfect solution for your business.
               </p>
 
               <div className="space-y-6">
@@ -44,8 +44,8 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Email</h3>
-                    <p className="text-slate-600">info@shorelineglobal.com</p>
-                    <p className="text-slate-600">support@shorelineglobal.com</p>
+                    <p className="text-slate-600">contact@shoreline-global.com</p>
+                    <p className="text-slate-600">support@shoreline-global.com</p>
                   </div>
                 </div>
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Phone</h3>
                     <p className="text-slate-600">+1 (555) 123-4567</p>
-                    <p className="text-slate-500 text-sm">Mon-Fri 9am-6pm EST</p>
+                    <p className="text-slate-500 text-sm">Mon-Fri 9am-6pm PST</p>
                   </div>
                 </div>
 
@@ -72,41 +72,29 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Headquarters</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Address</h3>
                     <p className="text-slate-600">
-                      [Address to be updated]<br />
-                      City, State ZIP
+                      600 Epic Way<br />
+                      San Jose, CA 95134
                     </p>
                   </div>
                 </div>
 
                 {/* Support */}
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">24/7 Support</h3>
-                    <p className="text-slate-600">
-                      Emergency support available around the clock for existing clients
-                    </p>
-                  </div>
-                </div>
+                {/* Support section removed */}
               </div>
 
               {/* Social Links (placeholder) */}
               <div className="mt-10">
                 <h3 className="text-lg font-semibold text-slate-900 mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                  <a href="#" className="w-10 h-10 bg-slate-500 rounded-full flex items-center justify-center hover:bg-blue-900 hover:text-white transition-colors">
                     <span className="sr-only">LinkedIn</span>
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                   </a>
-                  <a href="#" className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                  <a href="#" className="w-10 h-10 bg-slate-500 rounded-full flex items-center justify-center hover:bg-blue-700 hover:text-white transition-colors">
                     <span className="sr-only">Twitter</span>
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
@@ -148,15 +136,6 @@ export default function ContactPage() {
               <p className="text-slate-600">
                 We typically respond to all inquiries within 24 hours during business days.
                 For urgent matters, please call our support line directly.
-              </p>
-            </div>
-            <div className="border-b border-slate-200 pb-6">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                Do you offer free consultations?
-              </h3>
-              <p className="text-slate-600">
-                Yes! We offer complimentary initial consultations to understand your supply chain
-                needs and recommend the best solutions for your business.
               </p>
             </div>
             <div className="border-b border-slate-200 pb-6">
