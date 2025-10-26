@@ -166,7 +166,7 @@ export default function ContactForm() {
         <motion.button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full md:w-auto bg-blue-950 text-white px-8 py-4 rounded-lg hover:bg-blue-900 transition-all font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+          className="w-full md:w-auto bg-sky-700 text-white px-8 py-4 rounded-lg hover:bg-sky-600 transition-all font-medium text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
           whileHover={{ scale: status === 'loading' ? 1 : 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
