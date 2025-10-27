@@ -56,7 +56,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>Email: contact@shoreline-global.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>Phone: +1 (669) 247-2636</li>
               <li>Address: 600 Epic Way, San Jose, CA 95134
               </li>
             </ul>

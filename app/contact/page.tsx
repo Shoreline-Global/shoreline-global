@@ -45,7 +45,6 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Email</h3>
                     <p className="text-slate-600">contact@shoreline-global.com</p>
-                    <p className="text-slate-600">support@shoreline-global.com</p>
                   </div>
                 </div>
 
@@ -58,7 +57,7 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-slate-900 mb-1">Phone</h3>
-                    <p className="text-slate-600">+1 (555) 123-4567</p>
+                    <p className="text-slate-600">+1 (669) 247-2636</p>
                     <p className="text-slate-500 text-sm">Mon-Fri 9am-6pm PST</p>
                   </div>
                 </div>
