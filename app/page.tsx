@@ -50,17 +50,17 @@ export default function Home() {
   return (
     <div ref={containerRef} className="min-h-screen relative">
       {/* Seamless Background Gradient - Top to Bottom Journey */}
-      <div className="fixed inset-0 bg-gradient-to-b from-orange-50 via-amber-50 via-50% to-emerald-50 -z-10"></div>
+      <div className="fixed inset-0 bg-gradient-to-b from-sky-50 via-blue-50 via-50% to-emerald-50 -z-10"></div>
 
       <Navigation />
 
       {/* Continuous Vertical Supply Chain Path - fills as you scroll */}
       <div className="fixed left-8 lg:left-12 top-0 bottom-0 w-1 hidden lg:block z-40 pointer-events-none">
         {/* Background track */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-orange-200 via-amber-200 to-emerald-200 opacity-30"></div>
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-sky-200 via-amber-200 to-emerald-200 opacity-30"></div>
         {/* Animated fill */}
         <motion.div
-          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-orange-500 via-amber-500 to-emerald-500 shadow-lg origin-top"
+          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-sky-500 via-blue-500 to-emerald-500 shadow-lg origin-top"
           style={{ height: pathHeight }}
         ></motion.div>
       </div>
@@ -70,7 +70,7 @@ export default function Home() {
         {/* Origin Checkpoint Marker */}
         <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-4 border-white shadow-xl flex items-center justify-center"
+            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -79,7 +79,7 @@ export default function Home() {
               <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             ORIGIN
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div className="mb-6" variants={fadeInUp}>
-              <span className="inline-block bg-white/80 backdrop-blur text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
+              <span className="inline-block bg-white/80 backdrop-blur text-sky-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
                 📍 Pickup Point
               </span>
             </motion.div>
@@ -101,7 +101,7 @@ export default function Home() {
               variants={fadeInUp}
             >
               Your Supply Chain Journey
-              <span className="bg-gradient-to-r from-orange-600 via-amber-500 to-emerald-600 bg-clip-text text-transparent block mt-2">Starts Here</span>
+              <span className="bg-gradient-to-r from-sky-600 via-blue-500 to-blue-600 bg-clip-text text-transparent block mt-2">Starts Here</span>
             </motion.h1>
             <motion.p
               className="text-xl text-slate-600 mb-8 leading-relaxed max-w-3xl"
@@ -120,7 +120,7 @@ export default function Home() {
               >
                 <Link
                   href="/contact"
-                  className="bg-gradient-to-r from-orange-600 to-amber-600 text-white px-8 py-4 rounded-lg hover:from-orange-700 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl font-medium text-lg inline-block"
+                  className="bg-gradient-to-r from-sky-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:from-sky-700 hover:to-sky-600 transition-all shadow-lg hover:shadow-xl font-medium text-lg inline-block"
                 >
                   Begin Journey →
                 </Link>
@@ -131,9 +131,9 @@ export default function Home() {
               >
                 <Link
                   href="/services"
-                  className="border-2 border-orange-400 bg-white/50 backdrop-blur text-slate-700 px-8 py-4 rounded-lg hover:border-orange-600 hover:text-orange-600 hover:bg-white/80 transition-all font-medium text-lg inline-block"
+                  className="border-2 border-sky-400 bg-white/50 backdrop-blur text-slate-700 px-8 py-4 rounded-lg hover:border-sky-600 hover:text-sky-600 hover:bg-white/80 transition-all font-medium text-lg inline-block"
                 >
-                  View Route Map →
+                  View Our Services →
                 </Link>
               </motion.div>
             </motion.div>
@@ -188,7 +188,7 @@ export default function Home() {
                 >
                   <div className="flex items-start gap-6">
                     <motion.div
-                      className="w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-16 h-16 bg-gradient-to-br from-amber-100 to-sky-100 rounded-xl flex items-center justify-center flex-shrink-0"
                       whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.6 } }}
                     >
                       <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -276,7 +276,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-sky-600 to-amber-600 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
                   <div className="text-slate-600 text-sm uppercase tracking-wide font-semibold">{stat.label}</div>
