@@ -2,6 +2,7 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import Confetti from '@/components/Confetti';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, slideInLeft } from '@/lib/animations';
@@ -67,21 +68,14 @@ export default function Home() {
 
       {/* CHECKPOINT: ORIGIN - Journey Starts Here */}
       <section className="relative min-h-screen flex items-center">
-        {/* Origin Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
+  {/* Origin Checkpoint Marker */}
+  <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-40">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-            </svg>
           </motion.div>
-          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-            ORIGIN
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-8 py-20">
@@ -170,7 +164,7 @@ export default function Home() {
                 variants={staggerItem}
               >
                 {/* Checkpoint Marker on Path */}
-                <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
+                <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-40">
                   <motion.div
                     className="w-14 h-14 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-lg flex items-center justify-center"
                     initial={{ scale: 0 }}
@@ -223,22 +217,15 @@ export default function Home() {
 
       {/* TRACKING CHECKPOINT - Performance Metrics */}
       <section className="relative py-32 overflow-hidden">
-        {/* Tracking Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
+  {/* Tracking Checkpoint Marker */}
+  <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-40">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-yellow-500 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
           </motion.div>
-          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-            TRACKING
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24 relative">
@@ -289,22 +276,15 @@ export default function Home() {
 
       {/* QUALITY CHECK CHECKPOINT - Why Choose Us */}
       <section id="about" className="py-32 overflow-hidden relative">
-        {/* Quality Check Marker */}
-        <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
+  {/* Quality Check Marker */}
+  <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-40">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-            </svg>
           </motion.div>
-          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-            QUALITY CHECK
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:pl-32 lg:pr-8">
@@ -361,52 +341,20 @@ export default function Home() {
 
       {/* CHECKPOINT: DESTINATION - Journey Complete */}
       <section className="relative py-32 overflow-hidden min-h-screen flex items-center">
-        {/* Destination Checkpoint Marker */}
-        <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
+  {/* Destination Checkpoint Marker */}
+  <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-40">
           <motion.div
-            className="w-20 h-20 rounded-full bg-gradient-to-br from-sky-500 to-sky-700 border-4 border-white shadow-2xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-            </svg>
           </motion.div>
-          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-            DESTINATION
-          </div>
         </div>
 
-        {/* Success celebration animation */}
+        {/* Success celebration animation (client-only confetti to avoid hydration mismatch) */}
         <div className="absolute inset-0 overflow-hidden opacity-10">
-          <motion.div
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-sky-400 rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [-20, -60],
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  delay: i * 0.1,
-                  repeat: Infinity,
-                }}
-              />
-            ))}
-          </motion.div>
+          <Confetti count={20} />
         </div>
 
         <motion.div
