@@ -50,17 +50,17 @@ export default function Home() {
   return (
     <div ref={containerRef} className="min-h-screen relative">
       {/* Seamless Background Gradient - Top to Bottom Journey */}
-      <div className="fixed inset-0 bg-gradient-to-b from-sky-50 via-blue-50 via-50% to-emerald-50 -z-10"></div>
+      <div className="fixed inset-0 bg-gradient-to-b from-sky-50 via-sky-40 via-50% to-sky-50 -z-10"></div>
 
       <Navigation />
 
       {/* Continuous Vertical Supply Chain Path - fills as you scroll */}
       <div className="fixed left-8 lg:left-12 top-0 bottom-0 w-1 hidden lg:block z-40 pointer-events-none">
         {/* Background track */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-sky-200 via-amber-200 to-emerald-200 opacity-30"></div>
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-sky-200 via-sky-200 to-sky-200 opacity-30"></div>
         {/* Animated fill */}
         <motion.div
-          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-sky-500 via-blue-500 to-emerald-500 shadow-lg origin-top"
+          className="absolute top-0 left-0 right-0 bg-gradient-to-b from-sky-500 via-sky-500 to-sky-600 shadow-lg origin-top"
           style={{ height: pathHeight }}
         ></motion.div>
       </div>
@@ -151,7 +151,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <span className="inline-block bg-white/80 backdrop-blur text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
+            <span className="inline-block bg-white/80 backdrop-blur text-sky-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               🚚 In Transit
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Route Checkpoints</h2>
@@ -172,7 +172,7 @@ export default function Home() {
                 {/* Checkpoint Marker on Path */}
                 <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
                   <motion.div
-                    className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 border-4 border-white shadow-lg flex items-center justify-center"
+                    className="w-14 h-14 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-lg flex items-center justify-center"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -183,29 +183,29 @@ export default function Home() {
                 </div>
 
                 <motion.div
-                  className="bg-white/70 backdrop-blur p-8 rounded-xl shadow-lg border-l-4 border-amber-500 hover:shadow-2xl hover:bg-white/90 transition-all duration-300 ml-0 lg:ml-28"
+                  className="bg-white/70 backdrop-blur p-8 rounded-xl shadow-lg border-l-4 border-sky-500 hover:shadow-2xl hover:bg-white/90 transition-all duration-300 ml-0 lg:ml-28"
                   whileHover={{ x: 10, scale: 1.02 }}
                 >
                   <div className="flex items-start gap-6">
                     <motion.div
-                      className="w-16 h-16 bg-gradient-to-br from-amber-100 to-sky-100 rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-16 h-16 bg-gradient-to-br from-sky-100 to-sky-100 rounded-xl flex items-center justify-center flex-shrink-0"
                       whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.6 } }}
                     >
-                      <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={service.icon} />
                       </svg>
                     </motion.div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="text-2xl font-semibold text-slate-900">{service.title}</h3>
-                        <span className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full">CHECKPOINT {index + 1}</span>
+                        <span className="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full">CHECKPOINT {index + 1}</span>
                       </div>
                       <p className="text-slate-600 text-lg">
                         {service.description}
                       </p>
                     </div>
                     <motion.div
-                      className="text-amber-500"
+                      className="text-sky-500"
                       animate={{ y: [0, 10, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
@@ -226,7 +226,7 @@ export default function Home() {
         {/* Tracking Checkpoint Marker */}
         <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 border-4 border-white shadow-xl flex items-center justify-center"
+            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-yellow-500 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -236,7 +236,7 @@ export default function Home() {
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             TRACKING
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <span className="inline-block bg-white/80 backdrop-blur text-amber-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
+            <span className="inline-block bg-white/80 backdrop-blur text-sky-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               📊 Performance Metrics
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Real-Time Tracking Data</h2>
@@ -268,7 +268,7 @@ export default function Home() {
                 key={index}
                 variants={staggerItem}
                 whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.3 } }}
-                className="bg-white/70 backdrop-blur rounded-xl p-6 border border-amber-200 shadow-lg hover:shadow-xl hover:bg-white/90"
+                className="bg-white/70 backdrop-blur rounded-xl p-6 border border-sky-200 shadow-lg hover:shadow-xl hover:bg-white/90"
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -276,7 +276,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-sky-600 to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold mb-2 bg-gradient-to-r from-sky-600 to-sky-600 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
                   <div className="text-slate-600 text-sm uppercase tracking-wide font-semibold">{stat.label}</div>
@@ -292,7 +292,7 @@ export default function Home() {
         {/* Quality Check Marker */}
         <div className="absolute left-8 lg:left-12 top-32 -translate-x-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
-            className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-xl flex items-center justify-center"
+            className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-sky-600 border-4 border-white shadow-xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -302,7 +302,7 @@ export default function Home() {
               <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             QUALITY CHECK
           </div>
         </div>
@@ -314,7 +314,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={slideInLeft}
           >
-            <span className="inline-block bg-white/80 backdrop-blur text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
+            <span className="inline-block bg-white/80 backdrop-blur text-sky-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-sm">
               ✓ Quality Assurance
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
@@ -334,12 +334,12 @@ export default function Home() {
               {features.map((feature, index) => (
                 <motion.li
                   key={index}
-                  className="flex items-start group bg-white/70 backdrop-blur p-5 rounded-lg border-l-4 border-emerald-500 shadow-md hover:shadow-xl hover:bg-white/90"
+                  className="flex items-start group bg-white/70 backdrop-blur p-5 rounded-lg border-l-4 border-sky-500 shadow-md hover:shadow-xl hover:bg-white/90"
                   variants={staggerItem}
                   whileHover={{ x: 10, scale: 1.02, transition: { duration: 0.3 } }}
                 >
                   <motion.div
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mr-3 flex-shrink-0"
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center mr-3 flex-shrink-0"
                     whileHover={{ scale: 1.3, rotate: 360, transition: { duration: 0.5 } }}
                   >
                     <svg
@@ -351,7 +351,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </motion.div>
-                  <span className="text-slate-700 group-hover:text-emerald-600 transition-colors font-medium">{feature}</span>
+                  <span className="text-slate-700 group-hover:text-sky-600 transition-colors font-medium">{feature}</span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -364,7 +364,7 @@ export default function Home() {
         {/* Destination Checkpoint Marker */}
         <div className="absolute left-8 lg:left-12 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center z-50">
           <motion.div
-            className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 border-4 border-white shadow-2xl flex items-center justify-center"
+            className="w-20 h-20 rounded-full bg-gradient-to-br from-sky-500 to-sky-700 border-4 border-white shadow-2xl flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -374,7 +374,7 @@ export default function Home() {
               <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
             </svg>
           </motion.div>
-          <div className="mt-2 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          <div className="mt-2 bg-sky-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
             DESTINATION
           </div>
         </div>
@@ -390,7 +390,7 @@ export default function Home() {
             {[...Array(20)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-emerald-400 rounded-full"
+                className="absolute w-2 h-2 bg-sky-400 rounded-full"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
@@ -423,7 +423,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, type: "spring" }}
           >
-            <span className="inline-block bg-white/90 backdrop-blur text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
+            <span className="inline-block bg-white/90 backdrop-blur text-sky-600 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
               🎯 Final Stop
             </span>
           </motion.div>
@@ -441,7 +441,7 @@ export default function Home() {
           >
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-10 py-5 rounded-lg hover:from-emerald-600 hover:to-green-700 transition-all shadow-2xl hover:shadow-emerald-500/50 font-bold text-xl inline-flex items-center gap-3"
+              className="bg-gradient-to-r from-sky-500 to-sky-600 text-white px-10 py-5 rounded-lg hover:from-sky-600 hover:to-sky-700 transition-all shadow-2xl hover:shadow-sky-500/50 font-bold text-xl inline-flex items-center gap-3"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
