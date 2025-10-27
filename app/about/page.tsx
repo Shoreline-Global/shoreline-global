@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'About Us - Shoreline Global',
-  description: 'Learn about Shoreline Global, your trusted partner in supply chain excellence with over 15 years of experience in global logistics and inventory management.',
+  description: 'Your trusted partner in distributor and reseller excellence with experience in global logistics and inventory management.',
 };
 
 export default function AboutPage() {
@@ -12,11 +12,11 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navigation />
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-20">
+      <section className="bg-sky-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">About Shoreline Global</h1>
-          <p className="text-xl text-blue-100 max-w-3xl">
-            Leading the way in supply chain innovation and excellence for over 15 years
+          <p className="text-xl text-sky-100 max-w-3xl">
+            Your trusted partner in distributor and reseller excellence with experience in global logistics and inventory management
           </p>
         </div>
       </section>
@@ -52,12 +52,12 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600">1</span>
+                <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-sky-600">1</span>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">Founded (2009)</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">Founded</h3>
                 <p className="text-slate-600">
                   Started with a vision to revolutionize supply chain management through
                   technology and customer service excellence.
@@ -67,27 +67,27 @@ export default function AboutPage() {
 
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600">2</span>
+                <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-sky-600">2</span>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">Global Expansion (2015)</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">Global Expansion</h3>
                 <p className="text-slate-600">
-                  Extended our services to 50+ countries, establishing key partnerships
-                  and distribution centers worldwide.
+                  Extended our services to 10+ brands, establishing key partnerships
+                  and distribution worldwide.
                 </p>
               </div>
             </div>
 
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600">3</span>
+                <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-sky-600">3</span>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">Technology Innovation (2020)</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">Technology Innovation</h3>
                 <p className="text-slate-600">
                   Launched AI-powered inventory management and real-time tracking systems,
                   setting new industry standards.
@@ -97,14 +97,14 @@ export default function AboutPage() {
 
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600">4</span>
+                <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl font-bold text-sky-600">4</span>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">Today (2025)</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">Today</h3>
                 <p className="text-slate-600">
-                  Serving 500+ clients globally with comprehensive supply chain solutions
+                  Serving 50+ clients globally with comprehensive supply chain solutions
                   and maintaining 99.9% on-time delivery rate.
                 </p>
               </div>
@@ -119,8 +119,8 @@ export default function AboutPage() {
           <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">Our Core Values</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -132,8 +132,8 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
@@ -170,15 +170,15 @@ export default function AboutPage() {
           </p>
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">200+</div>
+              <div className="text-4xl font-bold mb-2">20+</div>
               <div className="text-slate-400">Team Members</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">25+</div>
+              <div className="text-4xl font-bold mb-2">15+</div>
               <div className="text-slate-400">Countries</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">50+</div>
+              <div className="text-4xl font-bold mb-2">5+</div>
               <div className="text-slate-400">Industry Experts</div>
             </div>
             <div>
@@ -201,13 +201,13 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg"
+              className="bg-sky-600 text-white px-8 py-4 rounded-lg hover:bg-sky-700 transition-colors font-medium text-lg"
             >
               Contact Us
             </a>
             <a
               href="/services"
-              className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-medium text-lg"
+              className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-lg hover:border-sky-600 hover:text-sky-600 transition-colors font-medium text-lg"
             >
               Our Services
             </a>

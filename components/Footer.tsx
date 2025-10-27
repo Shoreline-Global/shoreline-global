@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-slate-800 pt-8 text-center text-sm">
-          <p>Built with &#9829; in California by Fazper.</p>
+          <p>Built with &#9829; in California.</p>
         </div>
       </div>
     </footer>
