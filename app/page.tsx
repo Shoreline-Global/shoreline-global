@@ -19,10 +19,10 @@ const AbstractNetwork = () => {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
-    
+
     // Support high DPI displays for crisp rendering
     const dpr = window.devicePixelRatio || 1;
-    
+
     const resizeCanvas = () => {
       const rect = canvas.parentElement?.getBoundingClientRect() || { width: window.innerWidth, height: window.innerHeight };
       canvas.width = rect.width * dpr;
@@ -57,7 +57,7 @@ const AbstractNetwork = () => {
         const dx = mouseX - this.x;
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 250 && mouseX > 0) {
           const forceDirectionX = dx / distance;
           const forceDirectionY = dy / distance;
@@ -96,7 +96,7 @@ const AbstractNetwork = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        
+
         if (this.flashTimer > 0 && this.flashTimer < 10) {
           ctx.fillStyle = '#ffffff';
           ctx.shadowBlur = 10;
@@ -105,7 +105,7 @@ const AbstractNetwork = () => {
           ctx.fillStyle = this.baseColor;
           ctx.shadowBlur = 0;
         }
-        
+
         ctx.fill();
         ctx.shadowBlur = 0; // Reset
       }
@@ -132,7 +132,7 @@ const AbstractNetwork = () => {
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
     };
-    
+
     const handleMouseLeave = () => {
       mouseX = -1000;
       mouseY = -1000;
@@ -164,7 +164,7 @@ const AbstractNetwork = () => {
             const gradient = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
             gradient.addColorStop(0, `rgba(255, 255, 255, ${0.1 * (1 - distance / 120)})`);
             gradient.addColorStop(1, `rgba(99, 102, 241, ${0.15 * (1 - distance / 120)})`);
-            
+
             ctx.strokeStyle = gradient;
             ctx.lineWidth = 1;
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -172,7 +172,7 @@ const AbstractNetwork = () => {
             ctx.stroke();
           }
         }
-        
+
         // Connect to mouse to form the dense cursor "neural brain"
         const dxMouse = particles[i].x - mouseX;
         const dyMouse = particles[i].y - mouseY;
@@ -209,6 +209,174 @@ const AbstractNetwork = () => {
     </div>
   );
 };
+
+// --- Shoreline Transition Animation ---
+// Left side: chaotic, disconnected particles (manual ops)
+// Right side: structured, connected network (AI systems)
+// A flowing wave separates them
+const ShorelineAnimation = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    const dpr = window.devicePixelRatio || 1;
+    let w = 0;
+    let h = 0;
+
+    interface Dot {
+      x: number; y: number;
+      baseX: number; baseY: number;
+      vx: number; vy: number;
+      radius: number;
+      side: 'left' | 'right';
+    }
+
+    let dots: Dot[] = [];
+    let time = 0;
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const rect = parent.getBoundingClientRect();
+      w = rect.width;
+      h = rect.height;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initDots();
+    };
+
+    const initDots = () => {
+      dots = [];
+      const count = Math.min(Math.floor((w * h) / 6000), 180);
+      for (let i = 0; i < count; i++) {
+        const x = Math.random() * w;
+        const y = Math.random() * h;
+        dots.push({
+          x, y,
+          baseX: x, baseY: y,
+          vx: (Math.random() - 0.5) * (x < w / 2 ? 1.2 : 0.15),
+          vy: (Math.random() - 0.5) * (x < w / 2 ? 1.2 : 0.15),
+          radius: x < w / 2 ? Math.random() * 1.5 + 0.5 : Math.random() * 1.2 + 0.6,
+          side: x < w / 2 ? 'left' : 'right',
+        });
+      }
+    };
+
+    // Flowing wave boundary
+    const getWaveX = (y: number, t: number) => {
+      return (w / 2)
+        + Math.sin(y * 0.008 + t * 0.6) * 40
+        + Math.sin(y * 0.015 + t * 1.2) * 20
+        + Math.cos(y * 0.003 + t * 0.3) * 30;
+    };
+
+    const animate = () => {
+      time += 0.016;
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw the flowing wave boundary
+      ctx.beginPath();
+      ctx.moveTo(getWaveX(0, time), 0);
+      for (let y = 0; y <= h; y += 2) {
+        ctx.lineTo(getWaveX(y, time), y);
+      }
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.12)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Subtle glow along the wave
+      ctx.beginPath();
+      ctx.moveTo(getWaveX(0, time), 0);
+      for (let y = 0; y <= h; y += 2) {
+        ctx.lineTo(getWaveX(y, time), y);
+      }
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.06)';
+      ctx.lineWidth = 8;
+      ctx.stroke();
+
+      // Update and draw dots
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+
+        if (d.side === 'left') {
+          // Chaotic movement
+          d.vx += (Math.random() - 0.5) * 0.15;
+          d.vy += (Math.random() - 0.5) * 0.15;
+          d.vx *= 0.96;
+          d.vy *= 0.96;
+          d.x += d.vx;
+          d.y += d.vy;
+          // Keep on left side
+          const boundary = getWaveX(d.y, time) - 20;
+          if (d.x > boundary) { d.x = boundary; d.vx *= -0.5; }
+          if (d.x < 0) d.x = 0;
+          if (d.y < 0 || d.y > h) d.vy *= -1;
+        } else {
+          // Gentle orbital movement (structured)
+          d.x = d.baseX + Math.sin(time * 0.5 + d.baseY * 0.01) * 3;
+          d.y = d.baseY + Math.cos(time * 0.4 + d.baseX * 0.01) * 3;
+          // Keep on right side
+          const boundary = getWaveX(d.y, time) + 20;
+          if (d.x < boundary) d.x = boundary;
+        }
+
+        // Draw dot
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+        if (d.side === 'left') {
+          ctx.fillStyle = `rgba(161, 161, 170, ${0.2 + Math.random() * 0.2})`; // zinc flickering
+        } else {
+          ctx.fillStyle = 'rgba(129, 140, 248, 0.5)'; // stable indigo
+        }
+        ctx.fill();
+
+        // Right-side connections (structured network)
+        if (d.side === 'right') {
+          for (let j = i + 1; j < dots.length; j++) {
+            if (dots[j].side !== 'right') continue;
+            const dx = d.x - dots[j].x;
+            const dy = d.y - dots[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(d.x, d.y);
+              ctx.lineTo(dots[j].x, dots[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <div className="absolute inset-0 z-0 pointer-events-none">
+      <canvas ref={canvasRef} className="w-full h-full" />
+    </div>
+  );
+};
+
 
 // Simplified animations for a cleaner look
 const fadeInUp = {
@@ -290,13 +458,6 @@ export default function Home() {
             variants={staggerContainer}
             className="max-w-4xl"
           >
-            <motion.div className="mb-8" variants={fadeInUp}>
-              <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-zinc-300 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide hover:bg-white/10 transition-colors cursor-pointer">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)] animate-pulse"></span>
-                Introducing Shoreline Global AI
-                <svg className="w-3 h-3 ml-1 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </motion.div>
 
             <motion.h1
               className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tighter text-white mb-6 leading-[1.05]"
@@ -389,7 +550,7 @@ export default function Home() {
                 <div className="bg-[#0A0A0A] p-8 sm:p-12 rounded-[24px] border border-white/5 hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 relative overflow-hidden group/card">
                   {/* Subtle top border gradient like Linear cards */}
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-start gap-8 relative z-10">
                     <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 text-zinc-300 shadow-inner group-hover/card:text-white transition-colors">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

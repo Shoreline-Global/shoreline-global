@@ -57,37 +57,6 @@ export default function ContactPage() {
                     <a href="mailto:contact@shoreline-global.com" className="text-zinc-200 font-normal hover:text-white transition-colors">contact@shoreline-global.com</a>
                   </div>
                 </div>
-
-                {/* Phone */}
-                <div className="flex items-start group">
-                  <div className="w-12 h-12 border border-white/10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-zinc-300 shadow-inner group-hover:text-white group-hover:border-white/20 transition-all">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div className="ml-5 mt-1">
-                    <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-500 mb-2">Phone</h3>
-                    <p className="text-zinc-200 font-normal">+1 (669) 247-2636</p>
-                    <p className="text-zinc-500 text-sm mt-1 font-normal">Mon-Fri 9am-6pm PST</p>
-                  </div>
-                </div>
-
-                {/* Office */}
-                <div className="flex items-start group">
-                  <div className="w-12 h-12 border border-white/10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-zinc-300 shadow-inner group-hover:text-white group-hover:border-white/20 transition-all">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div className="ml-5 mt-1">
-                    <h3 className="text-xs font-medium tracking-widest uppercase text-zinc-500 mb-2">Office</h3>
-                    <p className="text-zinc-200 font-normal leading-relaxed">
-                      600 Epic Way<br />
-                      San Jose, CA 95134
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
