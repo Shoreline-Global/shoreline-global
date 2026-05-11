@@ -40,9 +40,9 @@ export default function AboutPage() {
               <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-zinc-300 px-3 py-1.5 rounded-full text-xs font-medium tracking-wide shadow-sm mb-8">
                 The Insight
               </div>
-              <h2 className="text-3xl font-medium text-white mb-6 tracking-tight">Flashy demos don't scale.</h2>
+              <h2 className="text-3xl font-medium text-white mb-6 tracking-tight">Flashy demos don&apos;t scale.</h2>
               <p className="text-lg text-zinc-400 leading-relaxed mb-6 font-light">
-                Businesses are overwhelmed by repetitive workflows, fragmented systems, and the relentless noise of AI hype. Most companies don't need a cutting-edge theoretical model; they need practical automation that actually works in production.
+                Businesses are overwhelmed by repetitive workflows, fragmented systems, and the relentless noise of AI hype. Most companies don&apos;t need a cutting-edge theoretical model; they need practical automation that actually works in production.
               </p>
               <p className="text-lg text-zinc-400 leading-relaxed font-light">
                 They need systems that are secure, reliable, and integrated seamlessly into their existing infrastructure.
@@ -90,7 +90,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">Utility Over Hype</h3>
               <p className="text-zinc-400 leading-relaxed font-light">
-                We prioritize practical, measurable business outcomes. If an AI implementation doesn't improve efficiency or save time, we don't build it.
+                We prioritize practical, measurable business outcomes. If an AI implementation doesn&apos;t improve efficiency or save time, we don&apos;t build it.
               </p>
             </div>
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
             Partner with engineers you can trust.
           </h2>
           <p className="text-lg text-zinc-400 mb-12 font-light">
-            Let's discuss your technical challenges and architect a practical solution.
+            Let&apos;s discuss your technical challenges and architect a practical solution.
           </p>
           <a
             href="/contact"

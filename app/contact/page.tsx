@@ -26,7 +26,7 @@ export default function ContactPage() {
               Start the conversation.
             </h1>
             <p className="text-xl text-zinc-400 leading-relaxed font-normal">
-              We partner with organizations to build reliable automation and modernize operations. Let's discuss your technical challenges.
+              We partner with organizations to build reliable automation and modernize operations. Let&apos;s discuss your technical challenges.
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                 How do you differ from generic AI agencies?
               </h3>
               <p className="text-zinc-400 leading-relaxed font-normal">
-                We are engineer-first. We don't focus on hyped demos; we focus on secure, scalable systems that integrate into your existing architecture. We care about uptime, maintainability, and real operational utility.
+                We are engineer-first. We don&apos;t focus on hyped demos; we focus on secure, scalable systems that integrate into your existing architecture. We care about uptime, maintainability, and real operational utility.
               </p>
             </div>
             <div className="border-b border-white/10 pb-12">

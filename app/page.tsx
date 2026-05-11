@@ -3,8 +3,8 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
 // --- Premium Monochrome Motion Graphic ---
 const AbstractNetwork = () => {
@@ -210,178 +210,11 @@ const AbstractNetwork = () => {
   );
 };
 
-// --- Shoreline Transition Animation ---
-// Left side: chaotic, disconnected particles (manual ops)
-// Right side: structured, connected network (AI systems)
-// A flowing wave separates them
-const ShorelineAnimation = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: true });
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    const dpr = window.devicePixelRatio || 1;
-    let w = 0;
-    let h = 0;
-
-    interface Dot {
-      x: number; y: number;
-      baseX: number; baseY: number;
-      vx: number; vy: number;
-      radius: number;
-      side: 'left' | 'right';
-    }
-
-    let dots: Dot[] = [];
-    let time = 0;
-
-    const resize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      const rect = parent.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      initDots();
-    };
-
-    const initDots = () => {
-      dots = [];
-      const count = Math.min(Math.floor((w * h) / 6000), 180);
-      for (let i = 0; i < count; i++) {
-        const x = Math.random() * w;
-        const y = Math.random() * h;
-        dots.push({
-          x, y,
-          baseX: x, baseY: y,
-          vx: (Math.random() - 0.5) * (x < w / 2 ? 1.2 : 0.15),
-          vy: (Math.random() - 0.5) * (x < w / 2 ? 1.2 : 0.15),
-          radius: x < w / 2 ? Math.random() * 1.5 + 0.5 : Math.random() * 1.2 + 0.6,
-          side: x < w / 2 ? 'left' : 'right',
-        });
-      }
-    };
-
-    // Flowing wave boundary
-    const getWaveX = (y: number, t: number) => {
-      return (w / 2)
-        + Math.sin(y * 0.008 + t * 0.6) * 40
-        + Math.sin(y * 0.015 + t * 1.2) * 20
-        + Math.cos(y * 0.003 + t * 0.3) * 30;
-    };
-
-    const animate = () => {
-      time += 0.016;
-      ctx.clearRect(0, 0, w, h);
-
-      // Draw the flowing wave boundary
-      ctx.beginPath();
-      ctx.moveTo(getWaveX(0, time), 0);
-      for (let y = 0; y <= h; y += 2) {
-        ctx.lineTo(getWaveX(y, time), y);
-      }
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.12)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // Subtle glow along the wave
-      ctx.beginPath();
-      ctx.moveTo(getWaveX(0, time), 0);
-      for (let y = 0; y <= h; y += 2) {
-        ctx.lineTo(getWaveX(y, time), y);
-      }
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.06)';
-      ctx.lineWidth = 8;
-      ctx.stroke();
-
-      // Update and draw dots
-      for (let i = 0; i < dots.length; i++) {
-        const d = dots[i];
-
-        if (d.side === 'left') {
-          // Chaotic movement
-          d.vx += (Math.random() - 0.5) * 0.15;
-          d.vy += (Math.random() - 0.5) * 0.15;
-          d.vx *= 0.96;
-          d.vy *= 0.96;
-          d.x += d.vx;
-          d.y += d.vy;
-          // Keep on left side
-          const boundary = getWaveX(d.y, time) - 20;
-          if (d.x > boundary) { d.x = boundary; d.vx *= -0.5; }
-          if (d.x < 0) d.x = 0;
-          if (d.y < 0 || d.y > h) d.vy *= -1;
-        } else {
-          // Gentle orbital movement (structured)
-          d.x = d.baseX + Math.sin(time * 0.5 + d.baseY * 0.01) * 3;
-          d.y = d.baseY + Math.cos(time * 0.4 + d.baseX * 0.01) * 3;
-          // Keep on right side
-          const boundary = getWaveX(d.y, time) + 20;
-          if (d.x < boundary) d.x = boundary;
-        }
-
-        // Draw dot
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
-        if (d.side === 'left') {
-          ctx.fillStyle = `rgba(161, 161, 170, ${0.2 + Math.random() * 0.2})`; // zinc flickering
-        } else {
-          ctx.fillStyle = 'rgba(129, 140, 248, 0.5)'; // stable indigo
-        }
-        ctx.fill();
-
-        // Right-side connections (structured network)
-        if (d.side === 'right') {
-          for (let j = i + 1; j < dots.length; j++) {
-            if (dots[j].side !== 'right') continue;
-            const dx = d.x - dots[j].x;
-            const dy = d.y - dots[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 100) {
-              ctx.beginPath();
-              ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - dist / 100)})`;
-              ctx.lineWidth = 0.8;
-              ctx.moveTo(d.x, d.y);
-              ctx.lineTo(dots[j].x, dots[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return (
-    <div className="absolute inset-0 z-0 pointer-events-none">
-      <canvas ref={canvasRef} className="w-full h-full" />
-    </div>
-  );
-};
-
 
 // Simplified animations for a cleaner look
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
 };
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -587,7 +420,7 @@ export default function Home() {
               Built by engineers who understand scale, reliability, and real-world systems.
             </h2>
             <p className="text-lg text-zinc-400 font-normal leading-relaxed">
-              Most companies don't need another generic AI wrapper. They need thoughtful automation built securely into their existing infrastructure.
+              Most companies don&apos;t need another generic AI wrapper. They need thoughtful automation built securely into their existing infrastructure.
             </p>
           </motion.div>
 
@@ -666,7 +499,7 @@ export default function Home() {
             Ready to modernize your workflows?
           </h2>
           <p className="text-xl text-zinc-400 mb-10 font-normal max-w-2xl mx-auto">
-            Let's discuss how practical AI and system engineering can create measurable efficiency for your operations.
+            Let&apos;s discuss how practical AI and system engineering can create measurable efficiency for your operations.
           </p>
           <Link
             href="/contact"
